@@ -24,7 +24,7 @@
                                 <color key="textColor" red="0.88657994923857864" green="0.1326242135210908" blue="0.0076598588361287785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need your location to find good food" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-eP-OvG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow access to your location to find good food near you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-eP-OvG">
                                 <rect key="frame" x="62.666666666666657" y="524" width="249.99999999999997" height="46.666666666666629"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="e0c-a7-o6L"/>
@@ -62,8 +62,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-96-NWG" customClass="RoundedButton" customModule="WhereIsMyFood_" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666657" y="648" width="249.99999999999997" height="36"/>
+                                <rect key="frame" x="62.666666666666657" y="644" width="249.99999999999997" height="40"/>
                                 <color key="backgroundColor" red="0.88657994920000005" green="0.1326242135" blue="0.0076598588360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JNQ-7d-oqt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="ALLOW ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -12,6 +12,7 @@
 		35A5C1FF22DD4A1600C543C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35A5C1FD22DD4A1600C543C0 /* Main.storyboard */; };
 		35A5C20122DD4A1600C543C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A5C20022DD4A1600C543C0 /* Assets.xcassets */; };
 		35A5C20422DD4A1600C543C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35A5C20222DD4A1600C543C0 /* LaunchScreen.storyboard */; };
+		35B4C86622E7D06800333909 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4C86522E7D06800333909 /* LocationService.swift */; };
 		35D4F53A22DD72410095F966 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4F53922DD72410095F966 /* RoundedButton.swift */; };
 		35D4F53C22DD73E40095F966 /* FoodNearbyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4F53B22DD73E40095F966 /* FoodNearbyVC.swift */; };
 		BFA785ECB3B2189C722D6A45 /* Pods_WhereIsMyFood_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A436C99E6F4AC108453086 /* Pods_WhereIsMyFood_.framework */; };
@@ -25,6 +26,7 @@
 		35A5C20022DD4A1600C543C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35A5C20322DD4A1600C543C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35A5C20522DD4A1600C543C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35B4C86522E7D06800333909 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		35D4F53922DD72410095F966 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		35D4F53B22DD73E40095F966 /* FoodNearbyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNearbyVC.swift; sourceTree = "<group>"; };
 		3E0E628D1D105FC91F88FC04 /* Pods-WhereIsMyFood?.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsMyFood?.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereIsMyFood?/Pods-WhereIsMyFood?.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		35A5C1F822DD4A1600C543C0 /* WhereIsMyFood? */ = {
 			isa = PBXGroup;
 			children = (
+				35B4C86722E7D06E00333909 /* Services */,
 				35D4F53622DD70D30095F966 /* Models */,
 				35D4F53722DD70E80095F966 /* View */,
 				35D4F53822DD70EE0095F966 /* Controllers */,
@@ -83,6 +86,14 @@
 				35A5C20522DD4A1600C543C0 /* Info.plist */,
 			);
 			path = "WhereIsMyFood?";
+			sourceTree = "<group>";
+		};
+		35B4C86722E7D06E00333909 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				35B4C86522E7D06800333909 /* LocationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		35D4F53622DD70D30095F966 /* Models */ = {
@@ -232,6 +243,7 @@
 			files = (
 				35A5C1FC22DD4A1600C543C0 /* MainVC.swift in Sources */,
 				35D4F53A22DD72410095F966 /* RoundedButton.swift in Sources */,
+				35B4C86622E7D06800333909 /* LocationService.swift in Sources */,
 				35D4F53C22DD73E40095F966 /* FoodNearbyVC.swift in Sources */,
 				35A5C1FA22DD4A1600C543C0 /* AppDelegate.swift in Sources */,
 			);
