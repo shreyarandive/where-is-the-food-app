@@ -105,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="112.3152709359606"/>
         </scene>
-        <!--Restaurants-->
+        <!--Food Near You-->
         <scene sceneID="LEG-xf-D9r">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAQ-Iy-QgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,7 +199,7 @@
                             <outlet property="delegate" destination="dOa-Ak-uVW" id="6Sk-lX-hKm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Restaurants" id="5bv-af-FHa"/>
+                    <navigationItem key="navigationItem" title="Food Near You" id="5bv-af-FHa"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2501.449275362319" y="111.16071428571428"/>
@@ -211,6 +211,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7tB-Ql-nf1">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.88657994920000005" green="0.1326242135" blue="0.0076598588360000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="dOa-Ak-uVW" kind="relationship" relationship="rootViewController" id="j8B-WY-iDC"/>
