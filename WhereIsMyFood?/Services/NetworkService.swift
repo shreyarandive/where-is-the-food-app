@@ -28,14 +28,14 @@ enum YelpBusinessService {
             return .get
         }
         
-        var sampleData: Data {
-            return Data()
+        var sampleData: Moya.Data {
+            return Moya.Data()
         }
         
         var task: Task {
             switch self {
             case let .search(location, latitude, longitude):
-                return .requestParameters(parameters: ["location": location, "latitude": latitude, "longitude": longitude, "limit": 1], encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: ["location": location, "latitude": latitude, "longitude": longitude, "limit": 10], encoding: URLEncoding.queryString)
             }
         }
         

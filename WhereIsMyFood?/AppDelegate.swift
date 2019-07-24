@@ -16,24 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationService = LocationService()
     let myStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let moyaService = MoyaProvider<YelpBusinessService.Provider>()
-    
+    let jsonDecoder = JSONDecoder()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        moyaService.request(.search(location: "1300Bryant StSan Francisco", latitude: 29.7604, longitude: 95.3698)) { (result) in
-            switch result {
-            case .success(let response):
-                print(try? JSONSerialization.jsonObject(with: response.data, options: []))
-            case .failure(let error):
-                print(error)
-            }
-        }
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         
         switch locationService.status {
         case .restricted, .notDetermined, .denied:
             gotoLocationPermissionVC()
         default:
-            assertionFailure()
+            let navigation = myStoryboard.instantiateViewController(withIdentifier: "RestaurantNVC") as? UINavigationController
+            window.rootViewController = navigation
+            loadBusinesses()
         }
         window.makeKeyAndVisible()
         return true
@@ -43,6 +38,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locationPermissionVC = myStoryboard.instantiateViewController(withIdentifier: LOCATION_PERMISSION_VC) as? LocationPermissionVC
         window.rootViewController = locationPermissionVC
         locationPermissionVC?.locationService = locationService
+    }
+    
+    private func loadBusinesses() {
+        moyaService.request(.search(location: "1300Bryant StSan Francisco", latitude: 29.7604, longitude: 95.3698)) { (result) in
+            switch result {
+            case .success(let response):
+                let data = try? self.jsonDecoder.decode(Data.self, from: response.data)
+                let restaurant = data?.businesses.compactMap(RestaurantList.init)
+                if let navigation = self.window.rootViewController as? UINavigationController,
+                    let restaurantListVC = navigation.topViewController as? RestaurantNearbyVC {
+                    restaurantListVC.restaurants = restaurant ?? []
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

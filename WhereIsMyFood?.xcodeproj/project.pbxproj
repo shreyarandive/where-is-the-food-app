@@ -17,8 +17,10 @@
 		35B4C86C22E7EBAD00333909 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4C86B22E7EBAD00333909 /* NetworkService.swift */; };
 		35B4C86E22E806B900333909 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4C86D22E806B900333909 /* Business.swift */; };
 		35D4F53A22DD72410095F966 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4F53922DD72410095F966 /* RoundedButton.swift */; };
-		35D4F53C22DD73E40095F966 /* FoodNearbyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4F53B22DD73E40095F966 /* FoodNearbyVC.swift */; };
+		35D4F53C22DD73E40095F966 /* RestaurantNearbyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4F53B22DD73E40095F966 /* RestaurantNearbyVC.swift */; };
 		35DFFF9922E80B4400946AFE /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DFFF9822E80B4400946AFE /* RestaurantList.swift */; };
+		35DFFF9D22E8164500946AFE /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DFFF9C22E8164500946AFE /* RestaurantCell.swift */; };
+		35DFFF9F22E8350100946AFE /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DFFF9E22E8350100946AFE /* RoundedCorners.swift */; };
 		BFA785ECB3B2189C722D6A45 /* Pods_WhereIsMyFood_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A436C99E6F4AC108453086 /* Pods_WhereIsMyFood_.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +37,10 @@
 		35B4C86B22E7EBAD00333909 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		35B4C86D22E806B900333909 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Business.swift; path = "WhereIsMyFood?/Services/Business.swift"; sourceTree = SOURCE_ROOT; };
 		35D4F53922DD72410095F966 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		35D4F53B22DD73E40095F966 /* FoodNearbyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNearbyVC.swift; sourceTree = "<group>"; };
+		35D4F53B22DD73E40095F966 /* RestaurantNearbyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantNearbyVC.swift; sourceTree = "<group>"; };
 		35DFFF9822E80B4400946AFE /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantList.swift; path = "WhereIsMyFood?/Services/RestaurantList.swift"; sourceTree = SOURCE_ROOT; };
+		35DFFF9C22E8164500946AFE /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		35DFFF9E22E8350100946AFE /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		3E0E628D1D105FC91F88FC04 /* Pods-WhereIsMyFood?.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsMyFood?.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereIsMyFood?/Pods-WhereIsMyFood?.debug.xcconfig"; sourceTree = "<group>"; };
 		D4A436C99E6F4AC108453086 /* Pods_WhereIsMyFood_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhereIsMyFood_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62B4B907D490B3B72C78958 /* Pods-WhereIsMyFood?.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereIsMyFood?.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhereIsMyFood?/Pods-WhereIsMyFood?.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				35D4F53922DD72410095F966 /* RoundedButton.swift */,
+				35DFFF9C22E8164500946AFE /* RestaurantCell.swift */,
+				35DFFF9E22E8350100946AFE /* RoundedCorners.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				35A5C1FB22DD4A1600C543C0 /* LocationPermissionVC.swift */,
-				35D4F53B22DD73E40095F966 /* FoodNearbyVC.swift */,
+				35D4F53B22DD73E40095F966 /* RestaurantNearbyVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,10 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35DFFF9F22E8350100946AFE /* RoundedCorners.swift in Sources */,
+				35DFFF9D22E8164500946AFE /* RestaurantCell.swift in Sources */,
 				35A5C1FC22DD4A1600C543C0 /* LocationPermissionVC.swift in Sources */,
 				35D4F53A22DD72410095F966 /* RoundedButton.swift in Sources */,
 				35B4C86622E7D06800333909 /* LocationService.swift in Sources */,
-				35D4F53C22DD73E40095F966 /* FoodNearbyVC.swift in Sources */,
+				35D4F53C22DD73E40095F966 /* RestaurantNearbyVC.swift in Sources */,
 				35A5C1FA22DD4A1600C543C0 /* AppDelegate.swift in Sources */,
 				35B4C86E22E806B900333909 /* Business.swift in Sources */,
 				35DFFF9922E80B4400946AFE /* RestaurantList.swift in Sources */,
