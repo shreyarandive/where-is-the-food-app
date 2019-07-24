@@ -19,6 +19,6 @@ App that displays nearest restaurants using [Yelp APIs](https://www.yelp.com/dev
 
 Main Screen                               |  Nearest Restaurants Lists                 
 :----------------------------------------:|:---------------------------------------------:
-![](WhereIsMyFood?/Gifs/main-screen.png)  |  ![](WhereIsMyFood?/Gifs/restaurant-list.gif)  
+<img src="https://github.com/shreyarandive/where-is-the-food-app/blob/master/WhereIsMyFood%3F/Gifs/main-screen.png" width="320" height="580">  |  <img src="https://github.com/shreyarandive/where-is-the-food-app/blob/master/WhereIsMyFood%3F/Gifs/restaurant-list.gif" width="320" height="580">
 
 This app is inspired by [Gary Tokman](https://github.com/gtokman/Restaurant-Viewing-App)
