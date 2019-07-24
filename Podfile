@@ -1,7 +1,7 @@
 project 'WhereIsMyFood?.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '11.0'
 
 target 'WhereIsMyFood?' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -9,5 +9,6 @@ target 'WhereIsMyFood?' do
   
   # Pods for WhereIsMyFood?
   pod 'YelpAPI', '3.0.0'
-  
+  pod 'AlamofireImage'
+  pod 'Moya'
 end
