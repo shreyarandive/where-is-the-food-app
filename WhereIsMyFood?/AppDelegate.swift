@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,13 +23,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         
+        locationService.didChangeStatus = { success in
+            if success {
+                self.locationService.getLocation()
+            }
+        }
+        
+        locationService.newLocation = { result in
+            switch result {
+            case .success(let location):
+                //print(location.coordinate.latitude, location.coordinate.longitude)
+                self.loadBusinesses(with: location)
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
         switch locationService.status {
         case .restricted, .notDetermined, .denied:
             gotoLocationPermissionVC()
         default:
             let navigation = myStoryboard.instantiateViewController(withIdentifier: "RestaurantNVC") as? UINavigationController
             window.rootViewController = navigation
-            loadBusinesses()
+            locationService.getLocation()
         }
         window.makeKeyAndVisible()
         return true
@@ -37,21 +54,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func gotoLocationPermissionVC() {
         let locationPermissionVC = myStoryboard.instantiateViewController(withIdentifier: LOCATION_PERMISSION_VC) as? LocationPermissionVC
         window.rootViewController = locationPermissionVC
-        locationPermissionVC?.locationService = locationService
+        locationPermissionVC!.locationService = locationService
     }
     
-    private func loadBusinesses() {
-        moyaService.request(.search(location: "1300Bryant StSan Francisco", latitude: 29.7604, longitude: 95.3698)) { (result) in
-            switch result {
-            case .success(let response):
-                let data = try? self.jsonDecoder.decode(Data.self, from: response.data)
-                let restaurant = data?.businesses.compactMap(RestaurantList.init)
-                if let navigation = self.window.rootViewController as? UINavigationController,
-                    let restaurantListVC = navigation.topViewController as? RestaurantNearbyVC {
-                    restaurantListVC.restaurants = restaurant ?? []
+    private func loadBusinesses(with location: CLLocation) {
+        let geocoder = CLGeocoder()
+        var address = ""
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            if let _ = error { return }
+            guard let placemark = placemarks?.first else { return }
+            
+            let streetNumber = placemark.subThoroughfare ?? ""
+            let streetName = placemark.thoroughfare ?? ""
+            let city = placemark.locality ?? ""
+            address = streetNumber + streetName + city
+            
+            self.moyaService.request(.search(location: address, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)) { [weak self] (result) in
+                switch result {
+                case .success(let response):
+                    guard let strongSelf = self else { return }
+                    let data = try? strongSelf.jsonDecoder.decode(Data.self, from: response.data)
+                    let restaurant = data?.businesses.compactMap(RestaurantList.init).sorted(by: {$0.distance < $1.distance})
+                    
+                    if let navigation = strongSelf.window.rootViewController as? UINavigationController,
+                        let restaurantListVC = navigation.topViewController as? RestaurantNearbyVC {
+                        restaurantListVC.restaurants = restaurant ?? []
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }

@@ -34,6 +34,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func getLocation() {
+        print("get location")
         locationManager.requestLocation()
     }
     

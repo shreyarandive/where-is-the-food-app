@@ -11,7 +11,7 @@ import Foundation
 struct RestaurantList {
     let name: String
     let imageUrl: URL
-    let distance: String
+    let distance: Double
     let id: String
 }
 
@@ -20,7 +20,19 @@ extension RestaurantList {
         self.name = business.name
         self.id = business.id
         self.imageUrl = business.imageUrl
-        self.distance = "\(business.distance / 1609.344)"
+        self.distance = business.distance / 1609.344
+    }
+    
+    static var distanceFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        return formatter
+    }
+    
+    var formattedDistance: String? {
+        return RestaurantList.distanceFormatter.string(from: distance as NSNumber)
     }
 }
 
